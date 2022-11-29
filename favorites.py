@@ -5,23 +5,23 @@ def FloorFall():
     num = random.randrange(0,100)
     if inventory[0]=="lucky rock":
         if num < 5:
-            print("you fell through the floor and died")
+            print("")
             return 1
         elif num < 25:
-            print("you found a small whole that gets you out of the cave")
+            print("")
             return 2
         else:
-            print("the floor creaks")
+            print("")
             return 3
     else:
         if num < 10:
-            print("you fell through the floor and died")
+            print("")
             return 1
         elif num < 20:
-            print("you found a small whole that gets you out of the cave")
+            print("")
             return 2
         else:
-            print("the floor creaks")
+            print("")
             return 3  
 
 room = 1
@@ -29,12 +29,122 @@ doExist = False
 #-----------------------------------------------------------------------
 while doExist == False:
     if room == 1:
-        choice = input("you are in room 1, you can go (e)ast")
-        if choice == 'e' or choice == 'E' or choice == 'east':
+        choice = input("you are in room 1 you can go south or east")
+        if choice == 'south':
             room = 2
+        elif choice == 'east':
+            room = 12
     if room == 2:
-        choice = input("you are in room 2, you can go (w)est or (s)outh")
-        choice = input("you notice a mysterious rock on the wall")
+        choice = input("")
+        if choice == 'north':
+            room = 1
+        elif choice == 'west':
+            room = 3
+    if room == 3:
+        choice = input("")
+        if choice == 'east':
+            room = 2
+        elif choice == 'south':
+            room = 4
+     if room == 4:
+        choice = input("")
+        if choice == 'north':
+            room = 3
+        elif choice == 'south':
+            room = 5          
+    if room == 5:
+        choice = input("")
+        if choice == 'north':
+            room = 4
+        elif choice == 'east':
+            room = 6            
+    if room == 6:
+        choice = input("")
+        if choice == 'west':
+            room = 5
+        elif choice == 'east':
+            room = 7
+    if room == 7:
+        choice = input("")
+        if choice == 'west':
+            room = 6
+        elif choice == 'east':
+            room = 8           
+    if room == 8:
+        choice = input("")
+        if choice == 'west':
+            room = 7
+        elif choice == 'north':
+            room = 9            
+    if room == 9:
+        choice = input("")
+        if choice == 'south':
+            room = 8
+        elif choice == 'east':
+            room = 10      
+     if room == 10:
+        choice = input("")
+        if choice == 'west':
+            room = 9
+        elif choice == 'east':
+            room = 11    
+            
+    if room == 11:#FINAL BOSS make text red and black
+        choice = input("")
+        if choice == '':
+            room = 
+        elif choice == '':
+            room =
+            
+    if room == 12:
+        choice = input("")
+        if choice == 'west':
+            room = 1
+        elif choice == 'east':
+            room = 13      
+    if room == 13:
+        choice = input("")
+        if choice == 'west':
+            room = 12
+        elif choice == 'north':
+            room = 14            
+    if room == 14:
+        choice = input("")
+        if choice == 'south':
+            room = 13
+        elif choice == 'east':
+            room = 15       
+    if room == 15:
+        choice = input("")
+        if choice == 'west':
+            room = 14
+        elif choice == 'east':
+            room = 16            
+    if room == 16:
+        choice = input("")
+        if choice == 'west':
+            room = 15
+        elif choice == 'south':
+            room = 17
+    if room == 17:
+        choice = input("")
+        if choice == 'north':
+            room = 16
+        elif choice == 'south':
+            room = 18
+    if room == 18: 
+        choice = input("")
+        if choice == 'north':
+            room = 17 
+        elif choice == 'south':
+            room = 11      
+            
+            
+            
+            
+    if room == 2:
+        choice = input("")
+        choice = input("")
         if choice == 'w' or choice == 'W' or choice == 'west':
             room = 1
         elif choice == 's' or choice == 'S' or choice == 'south':
@@ -54,38 +164,6 @@ while doExist == False:
         elif choice == 's' or choice == 'S' or choice == 'south':
             room = 4
     if room == 4:
-        choice = input("you are in room 1, you can go (e)ast")
-        if choice == 'e' or choice == 'E' or choice == 'east':
-            room = 2
-    if room == 5:
-        choice = input("you are in room 1, you can go (e)ast")
-        if choice == 'e' or choice == 'E' or choice == 'east':
-            room = 2
-    if room == 6:
-        choice = input("you are in room 1, you can go (e)ast")
-        if choice == 'e' or choice == 'E' or choice == 'east':
-            room = 2
-    if room == 7:
-        choice = input("you are in room 1, you can go (e)ast")
-        if choice == 'e' or choice == 'E' or choice == 'east':
-            room = 2
-    if room == 8:
-        choice = input("you are in room 1, you can go (e)ast")
-        if choice == 'e' or choice == 'E' or choice == 'east':
-            room = 2
-    if room == 9:
-        choice = input("you are in room 1, you can go (e)ast")
-        if choice == 'e' or choice == 'E' or choice == 'east':
-            room = 2
-    if room == 10:
-        choice = input("you are in room 1, you can go (e)ast")
-        if choice == 'e' or choice == 'E' or choice == 'east':
-            room = 2
-    if room == 11:
-        choice = input("you are in room 1, you can go (e)ast")
-        if choice == 'e' or choice == 'E' or choice == 'east':
-            room = 2
-    if room == 12:
         choice = input("you are in room 1, you can go (e)ast")
         if choice == 'e' or choice == 'E' or choice == 'east':
             room = 2
