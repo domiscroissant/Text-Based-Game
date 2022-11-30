@@ -2,6 +2,29 @@ import random
 inventory = ["laser arm", "potion", "butter finger"]
 Player Health = 100
 
+import time
+
+start = time.time()
+room = 1
+TimeLeft = 2000
+
+while TimeLeft > 0:
+    print()
+    newTime = time.time()
+    timeElapsed = start -newTime
+    print(int(timeElapsed*-1), "seconds have passed.")
+    TimeLeft += timeElapsed
+    print("you have", int(TimeLeft), "seconds left to complete the game")
+    
+    if room ==1:
+        choice = input("you are in room 1, you can go south")
+        if choice == "south":
+            room = 2
+    if room ==2:
+        choice = input("you are in room 2, you can go north")
+        if choice == "north":
+            room = 1
+
 def BossBattle(PlayerHealth):
     RobotHealth = 100
     while PlayerHealth > 0 and RobotHealth > 0:
