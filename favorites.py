@@ -29,13 +29,13 @@ doExist = False
 #-----------------------------------------------------------------------
 while doExist == False:
     if room == 1:
-        choice = input("you are in room 1 you can go south or east")
+        choice = input("Hello my name is Greg, your friends thought it would be funny to put into a death chamber while you were asleep. To get out of this place alive you need to go to to either one of these two pathways. Near the end you need to defeat me and only if you can do that then you can get out of here alive. You can choose south or east Good Luck!")
         if choice == 'south':
             room = 2
         elif choice == 'east':
             room = 12
     if room == 2:
-        choice = input("")
+        choice = input("You chose the first pathway, you have the option to get a shield")
         if choice == 'north':
             room = 1
         elif choice == 'west':
@@ -97,7 +97,7 @@ while doExist == False:
             room =
             
     if room == 12:
-        choice = input("")
+        choice = input("You choosed")
         if choice == 'west':
             room = 1
         elif choice == 'east':
