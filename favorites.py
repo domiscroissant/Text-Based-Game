@@ -40,7 +40,53 @@ def BossBattle(PlayerHealth): #This is my function for my battle system for path
         print("you deafeated the robot")
         
     return PlayerHealth
+#Rock Paper Scissors-----------------------------
+import random
+humanPoints = 0
 
+
+def RPS(humanPoints):
+    print("Ready to play rock paper scissors bitch?")
+    print("Type rock paper or scissors now:")
+    choice = input()
+    num = random.randrange(1,4)
+    #--------------------------------------------------
+    if num == 1: print("i got rock")
+    elif num == 2: print("I got scissors")
+    elif num == 3: print("i got paper")
+    else: print("no")
+    #--------------------------------------------------
+    if choice == "rock" and num ==1:
+        print("it's a tie")
+    if choice == "rock" and num ==1:
+        print("it's a tie")
+    if choice == "rock" and num ==1:
+        print("it's a tie")
+    #--------------------------------------------------
+    if num == 1 and choice == "scissors":
+        print("rock beats scissors, computer wins")
+        humanPoints-=1
+    if num == 2 and choice == "scissors":
+        print("rock beats scissors, computer wins")
+        humanPoints-=1
+    if num == 3 and choice == "scissors":
+        print("rock beats scissors, computer wins")
+        humanPoints-=1
+    #--------------------------------------------------
+    if choice == "scissors" and num == 3:
+        print("scissors beats paper")
+        humanPoint+=1
+    if choice == "scissors" and num == 2:
+        print("scissors beats paper")
+        humanPoint+=1
+    if choice == "scissors" and num == 1:
+        print("scissors beats paper")
+        humanPoint+=1
+    return humanPoints
+        
+while True:
+    humanPonts = RPS(humanPoints)
+    print("Your humanpoints", humanPoints)
 #inventory--------------------------------------
 #import random
 #inventory = ["laser arm", "hyper elixir", "hover boots", "fire exilir" , "butter finger"]
