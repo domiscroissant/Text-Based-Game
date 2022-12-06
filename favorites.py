@@ -4,12 +4,12 @@ import random
 inventory =[" ", " ", " ", " ", " ", " "]
 PlayerHealth = 100
 
-def BossBattle(PlayerHealth):
+def BossBattle(PlayerHealth): #This is my function for my battle system for path 1 and final boss
     RobotHealth = 50
     while PlayerHealth > 0 and RobotHealth > 0:
-        if inventory[1]=="laser arm":
+        if inventory[1]=="laser arm": #This is the item in my inventory that will increase my attack to fight robot
             damage = random.randrange(10,41)
-        else:
+        else:#withouth it I would do this amount of damage 
             damage = random.randrange(5,11)
         print("You hit the robot for", damage, "HP")
         RobotHealth -= damage
