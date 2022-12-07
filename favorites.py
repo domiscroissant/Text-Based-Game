@@ -50,7 +50,54 @@ def BossBattle(PlayerHealth):#This is my battle system in which I will have my f
         print("you deafeated the robot")
         
     return PlayerHealth    
-#--------------------------------------------
+#RPS------------------------------------------
+import random
+humanPoints = 0
+
+
+def RPS(humanPoints):
+    print("Ready to play rock paper scissors?")
+    print("Type rock paper or scissors now:")
+    choice = input()
+    num = random.randrange(1,4)
+    #--------------------------------------------------
+    if num == 1: print("i got rock")
+    elif num == 2: print("I got paper")
+    elif num == 3: print("i got scissors")
+    else: print("no")
+    #--------------------------------------------------
+    if choice == "rock" and num ==1:
+        print("it's a tie")
+    if choice == "paper" and num ==2:
+        print("it's a tie")
+    if choice == "scissors" and num ==3:
+        print("it's a tie")
+    #--------------------------------------------------
+    if num == 1 and choice == "scissors":
+        print("rock beats scissors, Greg wins a point")
+        humanPoints-=1
+    if num == 2 and choice == "rock":
+        print("paper beats rock, Greg wins a point")
+        humanPoints-=1
+    if num == 3 and choice == "paper":
+        print("scissors beats paper, Greg wins a point")
+        humanPoints-=1
+    #--------------------------------------------------
+    if choice == "rock" and num == 3:
+        print("rock beats scissors, you win a point!")
+        humanPoints+=1
+    if choice == "scissors" and num == 2:
+        print("scissors beats paper, you win a point!")
+        humanPoints+=1
+    if choice == "paper" and num == 1:
+        print("paper beats rock, you win a point!")
+        humanPoints+=1
+    return humanPoints
+        
+while True:
+    humanPonts = RPS(humanPoints)
+    print("Your humanpoints", humanPoints)
+#---------------------------------------------
 #def RoomRandimizer():
     #chance = random.randrange(1,100)
     #if chance < 50:
