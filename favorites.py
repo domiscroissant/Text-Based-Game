@@ -15,7 +15,7 @@ PlayerHealth = 100
 def BossBattle(PlayerHealth):#This is my battle system in which I will have my fights with robots
     RobotHealth = 50
     import winsound
-     winsound.Beep(500,500)
+    winsound.Beep(500,500)
     while PlayerHealth > 0 and RobotHealth > 0:
         if inventory[1]=="laser arm":#I made it so if you have the laser arm you do more damage 
             damage = random.randrange(10,41)
