@@ -73,14 +73,14 @@ def RockPaperScissors(humanPoints):
         print("scissors beats paper, Greg wins a point")
         humanPoints-=1
     #--------------------------------------------------
-    if choice == "scissors" and num == 3:
-        print("you won a point")
+    if choice == "rock" and num == 3:
+        print("rock beats scissors, you win a point!")
         humanPoint+=1
     if choice == "scissors" and num == 2:
-        print("you won a point")
+        print("scissors beats paper, you win a point!")
         humanPoint+=1
-    if choice == "scissors" and num == 1:
-        print("you won a point")
+    if choice == "paper" and num == 1:
+        print("paper beats rock, you win a point!")
         humanPoint+=1
     return humanPoints
         
