@@ -1,15 +1,7 @@
 #text-based game final 10 rooms, 2 functions, 5 items, and win or lose
-import winsound
-from pygame import mixer 
+#This imports a beep sound at the start of the gmae
 
-
-winsound.Beep(500, 500)
-
-mixer.init()
-mixer.music.load('music.wav')
-mixer.music.play()
-
-print("ඞSUSSY")
+print("ඞSUSSY birb")
 print("   _____   ")
 print("  (' v ')  ")
 print(" ((_____)) ")
@@ -20,12 +12,14 @@ import random
 inventory =[" ", " ", " ", " ", " ", " "]
 PlayerHealth = 100
 
-def BossBattle(PlayerHealth):
+def BossBattle(PlayerHealth):#This is my battle system in which I will have my fights with robots
     RobotHealth = 50
+    import winsound
+     winsound.Beep(500,500)
     while PlayerHealth > 0 and RobotHealth > 0:
-        if inventory[1]=="laser arm":
+        if inventory[1]=="laser arm":#I made it so if you have the laser arm you do more damage 
             damage = random.randrange(10,41)
-        else:
+        else:  
             damage = random.randrange(5,11)
         print("You hit the robot for", damage, "HP")
         RobotHealth -= damage
@@ -36,14 +30,14 @@ def BossBattle(PlayerHealth):
         print("you have now", PlayerHealth, "HP left, the robot has", RobotHealth, "HP left ")
         choice = input("press h for hyper elixir or press b for butter finger, any other key to continue")
         if choice == "h":
-            if inventory[2]=="hyper elixir":
+            if inventory[2]=="hyper elixir":#I added a hyper elixir or potion that will heal you if you press h
                 print("drinking noises, ahhh, (xp+40)")
                 PlayerHealth +=40
                 inventory[2]= " "
             else:
                 print("sorry in canadian accent, you haven no potion")
         if choice == "b":
-            if inventory[0]=="butter finger":
+            if inventory[0]=="butter finger":#a butter finger as a final result, instant kill to you or greg
                 print("you pull out a butter finger and throw it at Greg, they catch it and an alien apperas ripping it to shreds leaving nothing behind but a mangaled machine and leaves saying, no one puts a finger on my butter finger")
                 RobotHealth = 0
             else:
@@ -56,61 +50,14 @@ def BossBattle(PlayerHealth):
         print("you deafeated the robot")
         
     return PlayerHealth    
-#Rock Paper Scissors-----------------------------
-import random
-humanPoints = 0
-
-
-def RPS(humanPoints):
-    print("Ready to play rock paper scissors?")
-    print("Type rock paper or scissors now:")
-    choice = input()
-    num = random.randrange(1,4)
-    #--------------------------------------------------
-    if num == 1: print("i got rock")
-    elif num == 2: print("I got paper")
-    elif num == 3: print("i got scissors")
-    else: print("no")
-    #--------------------------------------------------
-    if choice == "rock" and num ==1:
-        print("it's a tie")
-    if choice == "paper" and num ==2:
-        print("it's a tie")
-    if choice == "scissors" and num ==3:
-        print("it's a tie")
-    #--------------------------------------------------
-    if num == 1 and choice == "scissors":
-        print("rock beats scissors, Greg wins a point")
-        humanPoints-=1
-    if num == 2 and choice == "rock":
-        print("paper beats rock, Greg wins a point")
-        humanPoints-=1
-    if num == 3 and choice == "paper":
-        print("scissors beats paper, Greg wins a point")
-        humanPoints-=1
-    #--------------------------------------------------
-    if choice == "rock" and num == 3:
-        print("rock beats scissors, you win a point!")
-        humanPoints+=1
-    if choice == "scissors" and num == 2:
-        print("scissors beats paper, you win a point!")
-        humanPoints+=1
-    if choice == "paper" and num == 1:
-        print("paper beats rock, you win a point!")
-        humanPoints+=1
-    return humanPoints
-        
-while True:
-    humanPonts = RPS(humanPoints)
-    print("Your humanpoints", humanPoints)
 #--------------------------------------------
-def RoomRandimizer():
-    chance = random.randrange(1,100)
-    if chance < 50:
-        num = random.randrange(12, 17)
-        print("you're warped to room", num)
-        return num
-#---------------------------------------------
+#def RoomRandimizer():
+    #chance = random.randrange(1,100)
+    #if chance < 50:
+        #num = random.randrange(12, 17)
+        #print("you're warped to room", num)
+        #return num
+#-------- -------------------------------------
 def FloorFall(newhealth):
     num = random.randrange(0,100)
     if inventory[1]=="hover boots":
