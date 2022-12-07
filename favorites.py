@@ -1,15 +1,31 @@
 #text-based game final 10 rooms, 2 functions, 5 items, and win or lose
+import winsound
+from pygame import mixer 
+
+
+winsound.Beep(500, 500)
+
+mixer.init()
+mixer.music.load('music.wav')
+mixer.music.play()
+
+print("ඞSUSSY")
+print("   _____   ")
+print("  (' v ')  ")
+print(" ((_____)) ")
+print("    ^ ^    ")
+
 import random
 #import time
 inventory =[" ", " ", " ", " ", " ", " "]
 PlayerHealth = 100
 
-def BossBattle(PlayerHealth): #This is my function for my battle system for path 1 and final boss
+def BossBattle(PlayerHealth):
     RobotHealth = 50
     while PlayerHealth > 0 and RobotHealth > 0:
-        if inventory[1]=="laser arm": #This is the item in my inventory that will increase my attack to fight robot
+        if inventory[1]=="laser arm":
             damage = random.randrange(10,41)
-        else:#withouth it I would do this amount of damage 
+        else:
             damage = random.randrange(5,11)
         print("You hit the robot for", damage, "HP")
         RobotHealth -= damage
@@ -39,7 +55,7 @@ def BossBattle(PlayerHealth): #This is my function for my battle system for path
     else:
         print("you deafeated the robot")
         
-    return PlayerHealth
+    return PlayerHealth    
 #Rock Paper Scissors-----------------------------
 import random
 humanPoints = 0
@@ -87,57 +103,6 @@ def RockPaperScissors(humanPoints):
 while True:
     humanPonts = RPS(humanPoints)
     print("Your humanpoints", humanPoints)
-#inventory--------------------------------------
-#import random
-#inventory = ["laser arm", "hyper elixir", "hover boots", "fire exilir" , "butter finger"]
-#PlayerHealth = 100
-
-        
-#DoExit = False
-#room = 1
-#while DoExit == False and PlayerHealth>0: #see if it works without and playerhealth
-    #print("--------------------")
-    #print("your health is", PlayerHealth)
-    #print("your inventory:", end = " ")
-    #for i in range (len(inventory)):
-        #print(inventory[i], end = " ")
-    #print()
-    
-    #if room == 1:
-        #choice = input("hello human, my name is Greg, your friends thought it would be funny to put you in a robotic death chamber whileyou were asleep. The only way to get is through one of the two pathways. Once you get to the final room you need to defeat me. You can go south or east Good Luck!")
-        #if inventory[0]!="laser arm": #if you only want them to get one
-            #inventory[0]="laser arm"
-            #print("you got a laser arm boo hoo")
-        #if choice == 'south':
-            #room = 2
-    #if room == 2:
-        #choice = input("you are in room 2 you can go north or west")
-        #choice = input("theres a crate with a unique design in the middle")
-        #if choice == 'open crate':
-            #print("there's a hyper elixir *the sauce* inside")
-            #inventory[1]="hyper elixir"
-        #elif choice == 'north':
-            #room = 1
-        #elif choice == 'west':
-            #room = 3
-    #if room == 3:
-        #print("you can go east")
-        #choice = input()
-        #if choice == "East":
-            #if inventory[1]=="bomb":
-                #print("you blew up the door to room 4")
-                #room = 4
-                #inventory[1] = " "
-                
-    #if room == 4:
-        #print("A robot has emerged from the floor")
-    
-    #if PlayerHealth <= 0:
-        #print("You lost")
-    #else:
-        #print("You survived")
-           
-    
 #--------------------------------------------
 def RoomRandimizer():
     chance = random.randrange(1,100)
@@ -146,57 +111,38 @@ def RoomRandimizer():
         print("you're warped to room", num)
         return num
 #---------------------------------------------
-def FloorFall():
+def FloorFall(newhealth):
     num = random.randrange(0,100)
     if inventory[1]=="hover boots":
         if num < 50:
-            print("you fell and died")#add player health so game ends when you die
-            return 1
+          print("you fell and died")
+          PlayerHealth = 0
+          return PlayerHealth
         elif num < 40:
-            print("the floor is jammed and you proceed forward")
-            return 2
+          print("the floor is jammed and you proceed forward")
+          PlayerHealth = 100
+          return PlayerHealth
         else:
-            print("nothing happened")
-            return 3
+          print("nothing happened")
+          PlayerHealth = 100
+          return PlayerHealth
     else:
         if num < 70:
-            print("you fell and died")
-            return 1
+          print("you fell and died")
+          PlayerHealth = 0
+          return PlayerHealth
         elif num < 10:
-            print("the florr is jammed and you proceed forward")
-            return 2
+          print("the florr is jammed and you proceed forward")
+          PlayerHealth = 100
+          return PlayerHealth 
         else:
-            print("nothing happened")
-            return 3  
-#----------------------------------------
-#import time
-#start = time.time()
-#room = 1
-#TimeLeft = 100
-
-#while TimeLeft > 0:
-    #print()
-    #newTime = time.time()
-    #timeElapsed = start -newTime
-    #print(int(timeElapsed*-1), "seconds have passed.")
-    #TimeLeft += timeElapsed
-    #print("you have", int(TimeLeft), "seconds left to complete the game")
-    
-    #if room ==1:
-        #choice = input("you are in room 1, you can go south")
-        #if choice == "south":
-            #room = 2
-    #if room ==2:
-        #choice = input("you are in room 2, you can go north")
-        #if choice == "north":
-            #room = 1
-    
-    
-
-#-----------------------------------------------------------------------
+          print("nothing happened")
+          PlayerHealth = 100
+          return PlayerHealth
+#-----------------------------------------
 DoExit = False
 room = 1
-while DoExit == False and PlayerHealth>0: #see if it works without and playerhealth
+while DoExit == False and PlayerHealth>0:
     print("--------------------")
     print("your health is", PlayerHealth)
     print("your inventory:", end = " ")
@@ -319,25 +265,21 @@ while DoExit == False and PlayerHealth>0: #see if it works without and playerhea
         elif choice == 'east':
             room = 15       
     if room == 15:
-        choice = input("room 15 west or east")
-        result = FloorFall() 
-        if result == 1:
-            doExist = True
-            splat = True
-        elif result == 2:
-            doExist = True
+        print("you're in the next room and you look around, you notice that there is nothing on the walls, no one has survived up to this point, the floor is going to open")
+        print("you may proceed west or east")
+        choice = input()
+        PlayerHealth = FloorFall(PlayerHealth) 
+        if PlayerHealth == 0:
+          break
         if choice == 'west':
             room = 14
         elif choice == 'east':
             room = 16            
     if room == 16:
-        choice = input("room 16 west or south")
-        result = FloorFall() 
-        if result == 1:
-            doExist = True
-            splat = True
-        elif result == 2:
-            doExist = True
+        choice = input("Greg appers from the ceiling laughing, well that was pretty impressive human it would be a shame if this room is similar to the last one, you may proceed west or south")
+        PlayerHealth = FloorFall(PlayerHealth) 
+        if PlayerHealth == 0:
+          break
         if choice == 'west':
             room = 15
         elif choice == 'south':
@@ -384,10 +326,6 @@ while DoExit == False and PlayerHealth>0: #see if it works without and playerhea
         #if choice == 'e' or choice == 'E' or choice == 'east':
          #   room = 2
 #---------------------------------------------------------------------
-if splat == True:
-    print("you lost")
-else:
-    print("you're alive boo")
 if PlayerHealth <= 0:
   print("You lost")
 else:
