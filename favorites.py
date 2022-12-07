@@ -61,7 +61,7 @@ import random
 humanPoints = 0
 
 
-def RockPaperScissors(humanPoints):
+def RPS(humanPoints):
     print("Ready to play rock paper scissors?")
     print("Type rock paper or scissors now:")
     choice = input()
@@ -79,7 +79,7 @@ def RockPaperScissors(humanPoints):
     if choice == "scissors" and num ==3:
         print("it's a tie")
     #--------------------------------------------------
-    if num == 1 choice == "scissors":
+    if num == 1 and choice == "scissors":
         print("rock beats scissors, Greg wins a point")
         humanPoints-=1
     if num == 2 and choice == "rock":
@@ -91,13 +91,13 @@ def RockPaperScissors(humanPoints):
     #--------------------------------------------------
     if choice == "rock" and num == 3:
         print("rock beats scissors, you win a point!")
-        humanPoint+=1
+        humanPoints+=1
     if choice == "scissors" and num == 2:
         print("scissors beats paper, you win a point!")
-        humanPoint+=1
+        humanPoints+=1
     if choice == "paper" and num == 1:
         print("paper beats rock, you win a point!")
-        humanPoint+=1
+        humanPoints+=1
     return humanPoints
         
 while True:
