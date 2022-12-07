@@ -45,42 +45,42 @@ import random
 humanPoints = 0
 
 
-def RPS(humanPoints):
-    print("Ready to play rock paper scissors bitch?")
+def RockPaperScissors(humanPoints):
+    print("Ready to play rock paper scissors?")
     print("Type rock paper or scissors now:")
     choice = input()
     num = random.randrange(1,4)
     #--------------------------------------------------
     if num == 1: print("i got rock")
-    elif num == 2: print("I got scissors")
-    elif num == 3: print("i got paper")
+    elif num == 2: print("I got paper")
+    elif num == 3: print("i got scissors")
     else: print("no")
     #--------------------------------------------------
     if choice == "rock" and num ==1:
         print("it's a tie")
-    if choice == "rock" and num ==1:
+    if choice == "paper" and num ==2:
         print("it's a tie")
-    if choice == "rock" and num ==1:
+    if choice == "scissors" and num ==3:
         print("it's a tie")
     #--------------------------------------------------
-    if num == 1 and choice == "scissors":
-        print("rock beats scissors, computer wins")
+    if num == 1 choice == "scissors":
+        print("rock beats scissors, Greg wins a point")
         humanPoints-=1
-    if num == 2 and choice == "scissors":
-        print("rock beats scissors, computer wins")
+    if num == 2 and choice == "rock":
+        print("paper beats rock, Greg wins a point")
         humanPoints-=1
-    if num == 3 and choice == "scissors":
-        print("rock beats scissors, computer wins")
+    if num == 3 and choice == "paper":
+        print("scissors beats paper, Greg wins a point")
         humanPoints-=1
     #--------------------------------------------------
     if choice == "scissors" and num == 3:
-        print("scissors beats paper")
+        print("you won a point")
         humanPoint+=1
     if choice == "scissors" and num == 2:
-        print("scissors beats paper")
+        print("you won a point")
         humanPoint+=1
     if choice == "scissors" and num == 1:
-        print("scissors beats paper")
+        print("you won a point")
         humanPoint+=1
     return humanPoints
         
